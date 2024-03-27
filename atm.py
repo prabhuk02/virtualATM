@@ -47,7 +47,7 @@ while acc_nmbr == 1234:
             pin = int(input('Enter your pin: '))
             
             if pin == account_pin:
-
+                global current_balance
                 current_balance = balance_1 -amount
                 if current_balance < 0:
                     print('Insufficient Balance')
@@ -69,6 +69,7 @@ while acc_nmbr == 1234:
             
 
             if present_pin == account_pin:
+                global new_pin
                 new_pin = int(input('Enter your new pin: '))
                 new_pin_2 = int(input('Renter your new pin: '))
                 if present_pin == new_pin:
@@ -90,14 +91,14 @@ while acc_nmbr == 1234:
             transfer_acc_no = int(input("Enter the reciepient's acount number: "))  
             transfer_amount = int(input("Enter the amount you need to tranfer: "))
             pin = int(input('Enter your pin: '))
-            if pin == account_pin:
+            if pin == new_pin:
 
-                if transfer_amount > balance_1:
+                if transfer_amount > current_balance:
                     print('Insufficient balance')
-                elif balance_1 >= transfer_amount:
+                elif current_balance >= transfer_amount:
 
                     print('You have succesfully tranfered money')
-                    present_balance = balance_1 - transfer_amount
+                    present_balance = current_balance - transfer_amount
                     print(f'Now your present balance is : {present_balance} INR')    
                 
             else:
@@ -111,7 +112,7 @@ while acc_nmbr == 1234:
         plt.xlabel("Months ( in a year )")
         plt.ylabel("Withdrawn amount ( in thousands )")
         pin = int(input('Enter your pin: '))
-        if pin == account_pin:
+        if pin == account_pin or new_pin :
 
             plt.bar(x,y, color = 'r', width = 0.5)
             plt.show()
@@ -124,13 +125,12 @@ while acc_nmbr == 1234:
         else:
             print('Incorrect pin')
     elif choice == 6:
+        print("Thank you!")
         break
 
     else:
         print('You have entered the number that is not in our range.')
 
-else:
-    print(f"We don't have {acc_nmbr} account details")
 
         # SECOND USER
 
@@ -172,7 +172,7 @@ while acc_nmbr == 4321:
             pin = int(input('Enter your pin: '))
             
             if pin == account_pin_2:
-
+                global current_balance
                 current_balance = balance_2 -amount
                 if current_balance < 0:
                     print('low limit')
@@ -193,6 +193,7 @@ while acc_nmbr == 4321:
             print('To change your pin!')
             present_pin = int(input('Enter your present pin: '))
             if present_pin == account_pin_2:
+                global new_pin
                 new_pin = int(input('Enter your new pin: '))
                 new_pin_2 = int(input('Renter your new pin: '))
                 if present_pin == new_pin:
@@ -214,13 +215,13 @@ while acc_nmbr == 4321:
             transfer_acc_no = int(input("Enter the reciepient's acount number: "))  
             transfer_amount = int(input("Enter the amount you need to tranfer: "))
             pin = int(input('Enter your pin: '))
-            if pin == account_pin_2:
-                if transfer_amount > balance_2:
+            if pin == new_pin:
+                if transfer_amount > current_balance:
                     print('Insufficient balance')
-                elif balance_2 >= transfer_amount:
+                elif current_balance >= transfer_amount:
 
                     print('You have succesfully tranfered money')
-                    present_balance = balance_2 - transfer_amount
+                    present_balance = current_balance - transfer_amount
                     print(f'Now your present balance is : {present_balance} INR')    
                 
             else:
@@ -234,7 +235,7 @@ while acc_nmbr == 4321:
         plt.xlabel("Months ( in a year )")
         plt.ylabel("Withdrawn amount ( in thousands )")
         pin = int(input('Enter you pin: '))
-        if pin == account_pin_2:
+        if pin == account_pin_2 or new_pin:
           
           plt.bar(x,y, color = 'b', width = 0.4)
           plt.show()
@@ -247,6 +248,7 @@ while acc_nmbr == 4321:
           print('Incorrect pin')
         
     elif choice == 6:
+        print("Thank you!")
         break
 
     else:
